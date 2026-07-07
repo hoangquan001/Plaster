@@ -1,94 +1,259 @@
+        :root {
+            --blue-900: #0f3d66;
+            --blue-700: #1f5f96;
+            --blue-500: #2d83c5;
+            --blue-100: #eaf4ff;
+            --gold-500: #e7b32a;
+            --gold-300: #f4d77a;
+            --gold-100: #fff5d8;
+            --ink: #1d2a38;
+            --line: #d7e3ef;
+            --surface: #ffffff;
+            --surface-soft: #f7fbff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #eef2f7
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(231, 179, 42, .18), transparent 22%),
+                linear-gradient(180deg, #f6fbff 0%, #eef5fb 100%);
+            padding: 24px;
         }
 
         .container {
             max-width: 1100px;
-            margin: 30px auto;
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+            margin: 0 auto;
+            background: var(--surface);
+            border: 1px solid rgba(31, 95, 150, .12);
+            border-radius: 24px;
+            box-shadow: 0 18px 40px rgba(15, 61, 102, .12);
             overflow: hidden;
-            position: relative
+            position: relative;
         }
 
         .container:after {
             content: "Hoàng Tuấn";
             position: absolute;
-            top: 45%;
+            top: 43%;
             left: 50%;
-            transform: translate(-50%, -50%) rotate(-30deg);
+            transform: translate(-50%, -50%) rotate(-26deg);
             font-size: 110px;
-            color: rgba(0, 0, 0, .04);
-            font-weight: bold;
-            pointer-events: none
+            color: rgba(15, 61, 102, .04);
+            font-weight: 700;
+            letter-spacing: 4px;
+            pointer-events: none;
         }
 
         header {
-            background: linear-gradient(135deg, #0d6efd, #00b4ff);
+            background:
+                linear-gradient(135deg, rgba(15, 61, 102, .98), rgba(45, 131, 197, .94)),
+                linear-gradient(90deg, rgba(231, 179, 42, .2), transparent);
             color: #fff;
-            padding: 40px;
-            text-align: center
+            padding: 42px 40px 36px;
+            text-align: center;
+            position: relative;
+        }
+
+        header:before {
+            content: "";
+            position: absolute;
+            inset: auto 0 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-300), var(--gold-500), var(--gold-300));
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(255, 245, 216, .15);
+            border: 1px solid rgba(244, 215, 122, .45);
+            color: var(--gold-100);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
         }
 
         h1 {
-            margin: 0
+            margin: 0 0 10px;
+            font-size: clamp(28px, 4vw, 42px);
+            line-height: 1.2;
+        }
+
+        header p,
+        .contact p,
+        .card p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        #pricing-table {
+            padding: 28px 28px 0;
         }
 
         table {
             width: 100%;
-            border-collapse: collapse
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 20px;
+            background: var(--surface);
+            border: 1px solid var(--line);
         }
 
         th {
-            background: #0d6efd;
+            background: linear-gradient(180deg, var(--blue-700), var(--blue-900));
             color: #fff;
-            padding: 12px
+            padding: 16px 14px;
+            font-size: 15px;
         }
 
         td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
-            border-right: 1px solid #ddd
+            padding: 14px;
+            border-bottom: 1px solid var(--line);
+            border-right: 1px solid var(--line);
+            vertical-align: top;
         }
 
-        /* tr:nth-child(even) {
-            background: #f8f9fa
-        } */
+        tbody tr:nth-child(odd) {
+            background: #fcfeff;
+        }
+
+        tbody tr:hover {
+            background: var(--blue-100);
+        }
+
+        td:last-child,
+        th:last-child {
+            border-right: none;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .system-name {
+            background: linear-gradient(180deg, rgba(231, 179, 42, .18), rgba(231, 179, 42, .08));
+            color: var(--blue-900);
+            font-weight: 700;
+            min-width: 160px;
+            vertical-align: middle;
+            text-align: center;
+        }
 
         .price {
-            color: #d32f2f;
-            font-weight: bold
+            color: var(--blue-900);
+            font-weight: 700;
+            white-space: nowrap;
         }
 
-        .section {
-            padding: 30px
+        .section,
+        .contact {
+            padding: 30px;
+        }
+
+        .section h2,
+        .contact h2 {
+            margin: 0 0 18px;
+            color: var(--blue-900);
         }
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
         }
 
         .card {
-            background: #f8fbff;
-            padding: 16px;
-            border-left: 5px solid #0d6efd;
-            border-radius: 8px
+            background: linear-gradient(180deg, var(--surface-soft), #fff9ea);
+            padding: 18px;
+            border: 1px solid rgba(231, 179, 42, .22);
+            border-left: 5px solid var(--gold-500);
+            border-radius: 14px;
+        }
+
+        .card b {
+            color: var(--blue-900);
+            display: inline-block;
+            margin-bottom: 8px;
         }
 
         .contact {
-            /* background: #0d6efd; */
-
-            padding: 30px
+            background: linear-gradient(180deg, rgba(231, 179, 42, .06), rgba(45, 131, 197, .05));
         }
 
         .footer {
             text-align: center;
-            background: #083b8a;
+            background: var(--blue-900);
             color: #fff;
-            padding: 15px
+            padding: 16px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 12px;
+            }
+
+            header,
+            .section,
+            .contact,
+            #pricing-table {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            table,
+            thead,
+            tbody,
+            th,
+            td,
+            tr {
+                display: block;
+            }
+
+            thead {
+                display: none;
+            }
+
+            table {
+                border: none;
+                background: transparent;
+            }
+
+            tbody {
+                display: grid;
+                gap: 14px;
+            }
+
+            tbody tr {
+                border: 1px solid var(--line);
+                border-radius: 16px;
+                overflow: hidden;
+                background: var(--surface);
+                box-shadow: 0 8px 22px rgba(15, 61, 102, .08);
+            }
+
+            td {
+                border-right: none;
+                border-bottom: 1px solid var(--line);
+            }
+
+            tbody tr td:last-child {
+                border-bottom: none;
+            }
+
+            .system-name {
+                text-align: left;
+            }
         }
