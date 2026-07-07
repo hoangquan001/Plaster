@@ -261,11 +261,17 @@
 
             }
 
-       
+            .system-name {
+
+                min-width: 100px;
+
+            }
+
             .cards {
                 grid-template-columns: 1fr;
             }
-     /*
+
+            /*
             table,
             thead,
             tbody,
@@ -304,7 +310,5 @@
             }
 
             */
-            .system-name {
-                text-align: left;
-            } 
+
         }
